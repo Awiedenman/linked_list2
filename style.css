@@ -1,0 +1,25 @@
+.main-left {
+  background-color: #455A64;
+}
+
+.main-left__container {}
+
+.main-left__title {}
+.main-left__logo {}
+
+.main-left__input {}
+.main-left__input-title {}
+.main-left__input-URL {}
+.main-left__button-enter {}
+
+/*____________________________________*/
+
+.main-right {}
+
+.main-right__card-list {}
+
+.main-right__card-title{}
+.main-right__card-link {}
+.main-right__card-button {}
+.main-right__card-button-read {}
+.main-right__card-button-delete {}
