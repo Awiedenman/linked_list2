@@ -3,9 +3,11 @@ var cardTitle = document.querySelector('.main-left__input-title');
 var cardURL = document.querySelector('.main-left__input-URL');
 var enterBtn = document.querySelector('.main-left__button-enter');
 
-enterBtn.addEventListener('click', appendCard);
+// enterBtn.addEventListener('click', appendCard);
+enterBtn.addEventListener('click', blankOnEntry);
 cardList.addEventListener('click', deleteCard);
-cardList.addEventListener('click', markAsRead)
+cardList.addEventListener('click', markAsRead);
+
 
 function appendCard() {
   var createCard = document.createElement('li');  
@@ -45,5 +47,12 @@ function markAsRead() {
   }
 }
 
+function blankOnEntry() {
+  if (cardURL.value === '' || cardTitle.value === ''){
+    alert('Error empty field')
+  } else {
+    appendCard()
+  }
+}
 
 
