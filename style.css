@@ -59,7 +59,9 @@
 .main-right__card-button-read {}
 .main-right__card-button-delete {}
 
-
+.read {
+  background-color: red;
+}
 
 
 /*body-container {

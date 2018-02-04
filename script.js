@@ -5,6 +5,7 @@ var enterBtn = document.querySelector('.main-left__button-enter');
 
 enterBtn.addEventListener('click', appendCard);
 cardList.addEventListener('click', deleteCard);
+cardList.addEventListener('click', markAsRead)
 
 function appendCard() {
   var createCard = document.createElement('li');  
@@ -33,9 +34,16 @@ function appendCard() {
 
 
 function deleteCard(event) {
-  if(event.target.matches(".main-right__card-button-delete")){
+  if(event.target.matches('.main-right__card-button-delete')){
     event.target.closest('li').remove();
   }
 }
+
+function markAsRead() {
+  if (event.target && event.target.matches('.main-right__card-button-read')){
+    event.target.closest('li').classList.toggle('read');
+  }
+}
+
 
 
