@@ -45,7 +45,12 @@ function markAsRead() {
   if (event.target && event.target.matches('.main-right__card-button-read')){
     event.target.closest('li').classList.toggle('read');
   }
+  document.querySelector('.main-right__card-button-read').classList.toggle('main-right__card-button-read-clicked');
 }
+ 
+// function unmarkAsRead() {
+//   document.querySelector('.main-right__card-button-read').style.color = '#445A64'
+// }
 
 function blankOnEntry() {
   if (cardURL.value === '' || cardTitle.value === ''){

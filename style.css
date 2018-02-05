@@ -1,5 +1,8 @@
 * {
   margin: 0;
+  font-family: 'Open Sans', sans-serif;
+  font-weight: 400;
+  /*display: inline-block;*/
 }
 
 .main-left {
@@ -10,34 +13,58 @@
 }
 
 .main-left__container {
-  width: 100%;
-  height: 100%;
+  width: 85%;
   box-sizing: border-box;
   background-color: #455A64;
+  margin: 0 auto;
 }
 
 .main-left__title {
   color: #FFFFFF;
+  margin: 30% 0 40px;
+  text-align: center;
+  font-size: 70px;
+  font-weight: 800;
 }
 
 .main-left__logo {
-  height: 30px;
-  width: 30px;
+  height: 90px;
+  width: 90px;
+  vertical-align: middle;
 }
 
 .main-left__input {}
-.main-left__input-title {}
-.main-left__input-URL {}
+
+.main-left__input-title,
+.main-left__input-URL {
+  color: #445A64;
+  width: 96.5%;
+  height: 45px;
+  margin-bottom: 58px;
+  padding: 1px 0 1px 15px;
+  font-size: 30px;
+}
+
+.main-left__input-title::placeholder,
+.main-left__input-URL::placeholder {
+  color: #BDBFC1;
+  font-size: 30px;
+}
+
 .main-left__button-enter {
-  color: #FFFFFF;
-  width: 150px;
-  height: 20px;
+  width: 100%;
+  height: 45px;
   background-color: #FFC107;
-  padding: 5px;
+  color: #FFFFFF;
+  /*padding: 5px;*/
+  margin-bottom: 20px;
+  font-size: 20px;
+  font-weight: 800;
 }
 
 .main-left__button-enter:hover {
   background-color: #FFD773
+
 }
 
 /*____________________________________*/
@@ -45,22 +72,44 @@
 .main-right {
   width: 50vw;
   height: 100vh;
-  float: right;
   background-color: #CFD8DC;
   display: inline-block;
-
+  float: right;
 }
+ li {
+  width: 90%;
+  height: 200px;
+  border: 1px solid black;
+  margin: 10px auto;
+  background-color: #FFFFFF;
+  list-style-type: none;
+ }
 
 .main-right__card-list {}
 
-.main-right__card-title{}
-.main-right__card-link {}
-.main-right__card-button {}
-.main-right__card-button-read {}
+.main-right__card-title{
+  color: #445A64;
+  font-size: 30px;
+  width:100%;
+}
+.main-right__card-link {
+  color: #445A64;
+  width: 100%;
+}
+
+.main-right__card-button { color: #445A64;
+}
+
+.main-right__card-button-read {
+}
+.main-right__card-button-read-clicked {
+  color: #F05A28;
+  font-weight: 800; 
+}
 .main-right__card-button-delete {}
 
 .read {
-  background-color: red;
+  background-color: #F2F4F4;
 }
 
 
