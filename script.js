@@ -46,6 +46,7 @@ function markAsRead() {
     event.target.closest('li').classList.toggle('read');
   }
   document.querySelector('.main-right__card-button-read').classList.toggle('main-right__card-button-read-clicked');
+  document.querySelector('.main-right__card-button-delete').classList.toggle('main-right__card-button-delete-read');
 }
  
 // function unmarkAsRead() {

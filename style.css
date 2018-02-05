@@ -43,6 +43,7 @@
   margin-bottom: 58px;
   padding: 1px 0 1px 15px;
   font-size: 30px;
+  outline: none;
 }
 
 .main-left__input-title::placeholder,
@@ -60,6 +61,7 @@
   margin-bottom: 20px;
   font-size: 20px;
   font-weight: 800;
+  outline: none;
 }
 
 .main-left__button-enter:hover {
@@ -88,26 +90,56 @@
 .main-right__card-list {}
 
 .main-right__card-title{
+  font-weight: 800;
   color: #445A64;
   font-size: 30px;
   width:100%;
+  margin-top: 5px;
+  margin-left: 13px;
 }
 .main-right__card-link {
-  color: #445A64;
+  display: block;  
+  color: #607D8B;
+  text-decoration: underline #F2F4F4;
   width: 100%;
+  margin-top: 10px;
+  margin-left: 15px;
+  font-size: 22px;
 }
 
-.main-right__card-button { color: #445A64;
+.main-right__card-link:hover,
+.main-right__card-button:hover {
+  text-decoration: underline #FFC107;
+  font-weight: 800;
+
+} 
+
+.main-right__card-button { 
+  margin-bottom: 10px;
+  text-decoration: underline #F2F4F4;
+  color: #445A64;
+  border: none;
+  outline: none;
+  font-size: 14px;
 }
 
 .main-right__card-button-read {
-}
+  /*position: relative;*/
+  left: 10px;
+  bottom: 5px;
+  }
+
 .main-right__card-button-read-clicked {
   color: #F05A28;
+  background-color: #F2F4F4;
   font-weight: 800; 
 }
-.main-right__card-button-delete {}
+.main-right__card-button-delete {
 
+}
+.main-right__card-button-delete-read {
+  background-color: #F2F4F4;
+}
 .read {
   background-color: #F2F4F4;
 }
