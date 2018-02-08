@@ -45,7 +45,7 @@ if (cardTitle.value.length != 0 &&  cardURL.value.length != 0){
   cardList.appendChild(createCard);
   clearInputs(); 
   disableOnEnter();
-  numUnreadIncrement();
+  numUnreadLink();
   totalLinkCount();
  
   } else {
@@ -65,7 +65,7 @@ function totalLinkCount() {
   totalLinkCounter.innerText = totalLinks;   
 }
 
-function numUnreadIncrement() {
+function numUnreadLink() {
   var totalLinks = document.querySelectorAll('.card__container-title').length;
   var numReadLinks = document.querySelectorAll('.read').length;
   var numUnreadLinks = document.querySelector('.main-left__counter-unread');
@@ -84,7 +84,7 @@ function deleteCard(event) {
   }
     totalLinkCount();
     numReadLinks();
-    numUnreadIncrement();
+    numUnreadLink();
 }
 
 function markAsRead(event) {
@@ -93,11 +93,11 @@ function markAsRead(event) {
     console.log(card)
     card.classList.toggle('read');
 
-  event.target.classList.toggle('main-right__card-button-read-clicked');
+    event.target.classList.toggle('main-right__card-button-read-clicked');
 
-  numReadLinks();
-  numUnreadIncrement();
-  disableDeleteAllBtn()
+    numReadLinks();
+    numUnreadLink();
+    disableDeleteAllBtn();
   }
 }
 
@@ -106,6 +106,11 @@ function deleteAllRead() {
   console.log(totalReadCards);
   for(var i = 0 ; i < totalReadCards.length ; i++){
     totalReadCards[i].remove();
+    
+    disableDeleteAllBtn();
+    totalLinkCount();
+    numReadLinks();
+    numUnreadLink();
     disableDeleteAllBtn()
   }
 }
