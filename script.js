@@ -2,23 +2,21 @@ var cardList = document.querySelector('.main-right__card-list');
 var cardTitle = document.querySelector('.main-left__input-title');
 var cardURL = document.querySelector('.main-left__input-URL');
 var enterBtn = document.querySelector('.main-left__button-enter');
-var onPageCount = 0;
-var onPageRead = 0;
-var onPageUnread = 0;
-
 
 // enterBtn.addEventListener('click', appendCard);
-cardList.addEventListener('keyup', disabledButton);
+cardTitle.addEventListener('keyup', disabledButton);
 cardURL.addEventListener('keyup', disabledButton);
 enterBtn.addEventListener('click', appendCard);
-enterBtn.addEventListener('click', numOnPageIncrement);
-enterBtn.addEventListener('click', numUnreadIncrement);
+// enterBtn.addEventListener('click', totalLinkCount);
+// enterBtn.addEventListener('click', numUnreadIncrement);
 cardList.addEventListener('click', deleteCard);
 cardList.addEventListener('click', markAsRead);
 
 
 
 function appendCard() {
+
+if (cardTitle.value.length != 0 &&  cardURL.value.length != 0){
   var createCard = document.createElement('li');  
 
   createCard.innerHTML = `
@@ -48,31 +46,51 @@ function appendCard() {
 
   cardList.appendChild(createCard);
   clearInputs(); 
-  disableOnEnter()
+  disableOnEnter();
+  numUnreadIncrement();
+  totalLinkCount();
+ 
+  } else {
+  alert('Error, you must fill out both input fields!')
+  }
 }
 
-function numOnPageIncrement() {
-  onPageCount++
-  var numOnPage = document.querySelector('.main-left__counter-on-page')
-  numOnPage.innerText = onPageCount;
+function deleteAllRead() {
+  var totalReadCards = document.querySelectorAll('.read');
+  console.log(totalReadCards);
+  for(var i = 0 ; i < totalReadCards.length ; i++){
+    totalReadCards[i].remove();
+  }
+}
+
+
+function totalLinkCount() {
+  var totalLinks = document.querySelectorAll('.card__container-title').length;
+  var totalLinkCounter = document.querySelector('.main-left__counter-on-page');
+  totalLinkCounter.innerText = totalLinks;   
 }
 
 function numUnreadIncrement() {
-  onPageUnread++
-  var numUnread = document.querySelector('.main-left__counter-unread')
-  numUnread.innerText = onPageUnread;
+  var totalLinks = document.querySelectorAll('.card__container-title').length;
+  var numReadLinks = document.querySelectorAll('.read').length;
+  var numUnreadLinks = document.querySelector('.main-left__counter-unread');
+  var numUnread = totalLinks - numReadLinks;
+  numUnreadLinks.innerText = numUnread;
 }
 
-function numReadIncrement() {
-  onPageRead++
-  var numOfRead = document.querySelector('.main-left__counter-read')
-  numOfRead.innerText = onPageRead;
+function numReadLinks() {
+  var numReadLinks = document.querySelectorAll('.read').length;
+  document.querySelector('.main-left__counter-read').innerText = numReadLinks;
 }
 
 function deleteCard(event) {
   if(event.target && event.target.matches('.main-right__card-button-delete')){
     event.target.closest('li').remove();
   }
+    totalLinkCount();
+    numReadLinks();
+    numUnreadIncrement();
+
 }
 
 function markAsRead(event) {
@@ -83,9 +101,11 @@ function markAsRead(event) {
 
   event.target.classList.toggle('main-right__card-button-read-clicked');
 
-  numReadIncrement();
+  numReadLinks();
+  numUnreadIncrement();
   }
 }
+
  
 // ------------------------------
   // var sibling = document.querySelector('.main-right__card-button-read').nextSibling
@@ -110,15 +130,13 @@ function disableOnEnter() {
 }
 
 function disabledButton() {
-  if (cardURL.value === '' && cardTitle.value === '') {
-    alert('Error, empty field')
-    enterBtn.setAttribute('disabled', true)
-  } else if (cardURL.value === '' || cardTitle.value === '') {
-    alert('Error, empty field')
-    enterBtn.setAttribute('disabled', true)
-  } else {
-    enterBtn.disabled = false;
+  if (cardURL.value.length > 0 || cardTitle.value.length > 0 ) {
+    enterBtn.removeAttribute('disabled');
+  } else { 
+    enterBtn.setAttribute('disabled', true);
+  
   }
 }
+
 
 
