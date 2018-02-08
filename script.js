@@ -1,21 +1,19 @@
-var cardList = document.querySelector('.main-right__card-list');
+var deleteAllBtn = document.querySelector('.main-left__button-delete-read');
 var cardTitle = document.querySelector('.main-left__input-title');
-var cardURL = document.querySelector('.main-left__input-URL');
 var enterBtn = document.querySelector('.main-left__button-enter');
+var cardList = document.querySelector('.main-right__card-list');
+var cardURL = document.querySelector('.main-left__input-URL');
 
-// enterBtn.addEventListener('click', appendCard);
+deleteAllBtn.addEventListener('click', deleteAllRead);
 cardTitle.addEventListener('keyup', disabledButton);
 cardURL.addEventListener('keyup', disabledButton);
 enterBtn.addEventListener('click', appendCard);
-// enterBtn.addEventListener('click', totalLinkCount);
-// enterBtn.addEventListener('click', numUnreadIncrement);
 cardList.addEventListener('click', deleteCard);
 cardList.addEventListener('click', markAsRead);
 
 
 
 function appendCard() {
-
 if (cardTitle.value.length != 0 &&  cardURL.value.length != 0){
   var createCard = document.createElement('li');  
 
@@ -42,7 +40,7 @@ if (cardTitle.value.length != 0 &&  cardURL.value.length != 0){
         Delete
       </button>
     </div>
-    `;
+   `;
 
   cardList.appendChild(createCard);
   clearInputs(); 
@@ -55,14 +53,11 @@ if (cardTitle.value.length != 0 &&  cardURL.value.length != 0){
   }
 }
 
-function deleteAllRead() {
-  var totalReadCards = document.querySelectorAll('.read');
-  console.log(totalReadCards);
-  for(var i = 0 ; i < totalReadCards.length ; i++){
-    totalReadCards[i].remove();
-  }
+function clearInputs() {
+  cardURL.value = '';
+  cardTitle.value = '';
+  console.log(clearInputs);
 }
-
 
 function totalLinkCount() {
   var totalLinks = document.querySelectorAll('.card__container-title').length;
@@ -90,7 +85,6 @@ function deleteCard(event) {
     totalLinkCount();
     numReadLinks();
     numUnreadIncrement();
-
 }
 
 function markAsRead(event) {
@@ -103,26 +97,17 @@ function markAsRead(event) {
 
   numReadLinks();
   numUnreadIncrement();
+  disableDeleteAllBtn()
   }
 }
 
- 
-// ------------------------------
-  // var sibling = document.querySelector('.main-right__card-button-read').nextSibling
-  // var trueSibling = document.querySelector('.main-right__card-button-read').nextSibling
-   // var deleteBtn = document.querySelector('.main-right__card-button-delete');
-   // console.log(deleteBtn)
-   // deleteBtn.classList.toggle('main-right__card-button-delete-read');
-
-// function unmarkAsRead() {
-//   document.querySelector('.main-right__card-button-read').style.color = '#445A64'
-// }
-// --------------------------------
-
-function clearInputs() {
-  cardURL.value = '';
-  cardTitle.value = '';
-  console.log(clearInputs);
+function deleteAllRead() {
+  var totalReadCards = document.querySelectorAll('.read');
+  console.log(totalReadCards);
+  for(var i = 0 ; i < totalReadCards.length ; i++){
+    totalReadCards[i].remove();
+    disableDeleteAllBtn()
+  }
 }
 
 function disableOnEnter() {
@@ -133,8 +118,16 @@ function disabledButton() {
   if (cardURL.value.length > 0 || cardTitle.value.length > 0 ) {
     enterBtn.removeAttribute('disabled');
   } else { 
-    enterBtn.setAttribute('disabled', true);
-  
+    enterBtn.setAttribute('disabled', true); 
+  }
+}
+
+function disableDeleteAllBtn() {
+  var totalReadCards = document.querySelectorAll('.read').length;
+  if (totalReadCards === 0){
+    deleteAllBtn.setAttribute('disabled', true);
+  } else {
+    deleteAllBtn.disabled = false;
   }
 }
 

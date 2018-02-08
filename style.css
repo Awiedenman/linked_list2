@@ -3,7 +3,6 @@
   font-family: 'Open Sans', sans-serif;
   font-weight: 400;
   box-sizing: border-box;
-  /*display: inline-block;*/
 }
 
 .main-left {
@@ -33,8 +32,6 @@
   vertical-align: middle;
 }
 
-.main-left__input {}
-
 .main-left__input-title,
 .main-left__input-URL {
   color: #445A64;
@@ -58,7 +55,6 @@
   height: 45px;
   background-color: #FFC107;
   color: #FFFFFF;
-  /*padding: 5px;*/
   margin-bottom: 20px;
   font-size: 20px;
   font-weight: 800;
@@ -78,7 +74,18 @@
   background-color: #FFC107;
 }
 
+.main-left__button-delete-read:hover {
+  background-color: #FFD773
+}
 
+.main-left__button-delete-read:disabled {
+  opacity: .5;
+}
+
+
+.main-left__button-delete-read:disabled:hover {
+  background-color: #FFC107;
+}
 
 .main-left__counter-on-page-container{
   color: #FFFFFF;
@@ -130,7 +137,6 @@
 
 ul {
   padding: 25px;
-
 }
 
 li {
@@ -148,7 +154,6 @@ li {
   height: 35%;
   width: 100%;
   border-bottom: 1px solid #CFD8DC;
-
 }
 
 .main-right__card-title{
@@ -198,9 +203,6 @@ li {
   padding: 10px 0 0 10px;
 }
 
-.main-right__card-button-read {
-}
-
 .main-right__card-button-read-clicked {
   color: #F05A28;
   background-color: #F2F4F4;
@@ -221,13 +223,8 @@ li {
 }
 
 
-/*body-container {
-  display: grid;
-  grid-template-columns: 50% 50%;
-}*/
-
 /*____________________________________*/
-
+/*
 @media screen and (max-width: 1170px) {
 
     .main-left__title {
@@ -244,7 +241,7 @@ li {
     vertical-align: middle;
   }
 }
-
+*/
 
 
 
